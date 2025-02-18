@@ -1,4 +1,4 @@
-﻿# [atet](https://github.com/atet) / [learn](https://github.com/atet/learn/blob/master/README.md#atet--learn) / [**_git_**](https://github.com/atet/learn/blob/master/git/README.md#atet--learn--git)
+﻿# [atet](https://github.com/atet) / [**_git_**](https://github.com/atet/git?tab=readme-ov-file#atet--git)
 
 [![.img/logo_git.png](.img/logo_git.png)](#nolink)
 
@@ -52,8 +52,7 @@
 ### 1.1. Git GUI
 
 * We will use Git GUI to interface with GitHub's Website
-* Download the "64-bit Git for Windows Portable" version here: [https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/PortableGit-2.23.0-64-bit.7z.exe](https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/PortableGit-2.23.0-64-bit.7z.exe)
-   * Note: This link may break as new versions are released, if so go to: [https://git-scm.com/download/](https://git-scm.com/download/)
+* Download the "64-bit Git for Windows Portable" version here (tutorial is using v2.23.0, 64 bit): [https://git-scm.com/downloads/](https://git-scm.com/downloads/)
 
 [![.img/step01a.png](.img/step01a.png)](#nolink)
 
@@ -255,9 +254,11 @@
 
 Issue | Solution
 --- | ---
-GitHub won't let me push a large file | GitHub will not allow a single file to be larger than 100 MB unless you enable [LFS](https://git-lfs.github.com/)
+GitHub won't let me push a large file I've added and committed | GitHub will not allow a single file to be larger than 100 MB unless you enable [LFS](https://git-lfs.github.com/)
 I erased a large file but GitHub still thinks it's in my repos | Even if you remove the file, once commited, it exists in your Git history. Follow these instructions to `reset` the `HEAD`: https://stackoverflow.com/a/54846502<br><br>`$ git status`<br>`$ git reset HEAD~<HOWEVER MANY COMMITS YOU ARE AHEAD>`<br>`$ git add . && git commit -m "" && git push -u origin master`
-
+GitHub is showing that my commits are "unverified" | Make sure you set up commit signature verification: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
+I have a subdirectory that I'd like to "split" out to its own new repository, how can I do it? | You can "subtree split": https://medium.com/@jeevansathisocial/extract-subdirectory-from-git-repository-without-losing-history-3de8aed359a4
+I made an error in my commit message, can I go back and edit it? | Yes, if it's the immediate previous commit:<br><br>`$ git commit --amend`<br>`<MAKE EDITS IN FILE, SAVE, AND EXIT>`<br>`$ git push -f`
 
 [Back to Top](#table-of-contents)
 
