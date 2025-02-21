@@ -255,9 +255,10 @@
 Issue | Solution
 --- | ---
 GitHub won't let me push a large file I've added and committed | GitHub will not allow a single file to be larger than 100 MB unless you enable [LFS](https://git-lfs.github.com/)
-I erased a large file but GitHub still thinks it's in my repos | Even if you remove the file, once commited, it exists in your Git history. Follow these instructions to `reset` the `HEAD`: https://stackoverflow.com/a/54846502<br><br>`$ git status`<br>`$ git reset HEAD~<HOWEVER MANY COMMITS YOU ARE AHEAD>`<br>`$ git add . && git commit -m "" && git push -u origin master`
+I erased a large file but GitHub still thinks it's in my repos | Even if you remove the file, once commited, it exists in your Git history. Follow these instructions to `reset` the `HEAD` (https://stackoverflow.com/a/54846502):<br><br>`$ git status`<br>`$ git reset HEAD~<HOWEVER MANY COMMITS YOU ARE AHEAD>`<br>`$ git add . && git commit -m "" && git push -u origin master`
 GitHub is showing that my commits are "unverified" | Make sure you set up commit signature verification: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 I have a subdirectory that I'd like to "split" out to its own new repository, how can I do it? | You can "subtree split": https://medium.com/@jeevansathisocial/extract-subdirectory-from-git-repository-without-losing-history-3de8aed359a4
+I want to copy my repository into another repository with a different name but retain history | Clone the repository you want to copy, then push to new repository (https://stackoverflow.com/a/26485128):<br><br>`$ git clone https://github.com/<USER>/<OLD_REPO>`<br>`$ cd <OLD_REPO>`<br>`$ git push https://github.com/<USER>/<NEW_REPO> <OLD_BRANCH>:<NEW_BRANCH>`
 I made an error in my commit message, can I go back and edit it? | Yes, if it's the immediate previous commit:<br><br>`$ git commit --amend`<br>`<MAKE EDITS IN FILE, SAVE, AND EXIT>`<br>`$ git push -f`
 
 [Back to Top](#table-of-contents)
